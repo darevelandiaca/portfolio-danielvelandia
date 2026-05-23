@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Velandia — Portfolio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0d0d0d;
+      --white:   #f5f5f0;
+      --accent:  #eeff41;
+      --muted:   #6b6b6b;
+      --border:  #e0e0d8;
+      --radius:  12px;
+      --gap:     2rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.65;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─── Nav ───────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(245, 245, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    /* ─── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 7rem 3rem 4rem;
+      gap: 4rem;
+    }
+
+    .hero-text { max-width: 560px; }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name span {
+      display: block;
+      color: var(--black);
+    }
+
+    .hero-name mark {
+      background: var(--accent);
+      color: var(--black);
+      padding: 0 0.12em;
+      border-radius: 2px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #444;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: var(--black);
+      padding: 0.85rem 2rem;
+      border-radius: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover { background: #d4e030; transform: translateY(-2px); }
+
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem; right: -1.5rem;
+      width: 75%;
+      height: 75%;
+      background: var(--accent);
+      border-radius: var(--radius);
+      z-index: 0;
+    }
+
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      aspect-ratio: 3/4;
+      filter: grayscale(10%);
+    }
+
+    /* ─── Section Shared ────────────────────────────────────────── */
+    section { padding: 6rem 3rem; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── About ─────────────────────────────────────────────────── */
+    #about {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    #about .section-label { color: var(--accent); }
+    #about .section-divider { background: var(--white); opacity: 0.2; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-bio {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #ccc;
+    }
+
+    .about-bio strong { color: var(--white); font-weight: 600; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem;
+    }
+
+    .skill-item {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #aaa;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-item::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── Work ──────────────────────────────────────────────────── */
+    #work { background: var(--white); }
+
+    .projects-list { display: flex; flex-direction: column; gap: 7rem; }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .project.reverse .project-top { direction: rtl; }
+    .project.reverse .project-top > * { direction: ltr; }
+
+    .project-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .project-bottom {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+      padding-bottom: 0.75rem;
+    }
+
+    .project-bottom::-webkit-scrollbar { height: 4px; }
+    .project-bottom::-webkit-scrollbar-track { background: transparent; }
+    .project-bottom::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    .project-bottom .img-thumb {
+      flex: 0 0 calc(24% - 0.75rem);
+      width: calc(24% - 0.75rem);
+      min-width: 180px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      scroll-snap-align: start;
+    }
+
+    .project-bottom .img-thumb img {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .project-bottom .img-thumb:hover img { transform: scale(1.05); }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+    }
+
+    .project-type {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .project-title {
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-subtitle {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .service-pill {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.3rem 0.9rem;
+      background: #f0f0eb;
+      border-radius: 100px;
+      color: #555;
+    }
+
+    .project-images { display: contents; }
+
+    .project-images .img-main {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+    }
+
+    .project-images .img-main img {
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-images .img-main:hover img { transform: scale(1.03); }
+
+    .project-images .img-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .project-images .img-row .img-thumb {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .project-images .img-row .img-thumb img {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 1;
+      transition: transform 0.5s ease;
+    }
+
+    .project-images .img-row .img-thumb:hover img { transform: scale(1.05); }
+
+    .project-number {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── Contact ───────────────────────────────────────────────── */
+    #contact {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 8rem 3rem;
+    }
+
+    #contact .section-label { color: var(--accent); }
+
+    .contact-headline {
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-headline em {
+      font-style: italic;
+      font-weight: 300;
+      color: #888;
+    }
+
+    .contact-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #888;
+      margin-bottom: 3.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+
+    .contact-link.primary {
+      background: var(--accent);
+      color: var(--black);
+    }
+
+    .contact-link.primary:hover { background: #d4e030; transform: translateY(-2px); }
+
+    .contact-link.secondary {
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+
+    .contact-link.secondary:hover {
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .contact-detail .label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    .contact-detail .value {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #bbb;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────────── */
+    footer {
+      background: #080808;
+      color: #444;
+      text-align: center;
+      padding: 2rem 3rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 1.5rem 3rem;
+        gap: 2.5rem;
+        text-align: center;
+      }
+
+      .hero-text { max-width: 100%; }
+      .hero-desc { max-width: 100%; }
+      .hero-photo-wrap { justify-content: center; }
+      .hero-photo { max-width: 320px; }
+      .hero-photo-wrap::before { width: 80%; height: 80%; top: -1rem; right: 0; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .project-top { grid-template-columns: 1fr; gap: 2rem; }
+      .project.reverse .project-top { direction: ltr; }
+
+      .project-bottom {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        overflow-x: visible;
+        padding-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .project-bottom .img-thumb {
+        flex: none;
+        min-width: unset;
+        width: 100%;
+      }
+
+      .contact-details { gap: 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero-name { font-size: 2.8rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .contact-headline { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-logo">Daniel Velandia</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><mark><a href="#contact">Contact</a></mark></li>
+    </ul>
+  </nav>
+
+  <!-- ─── Hero ──────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Design Portfolio</p>
+      <h1 class="hero-name">
+        <mark>Daniel</mark><br>
+        <span>Velandia</span>
+      </h1>
+      <p class="hero-desc">
+        A Bogotá-raised, Metro Vancouver-based designer specialized in all things Branding:
+        strategy, visual identity, implementation, and governance.
+      </p>
+      <a href="#work" class="hero-cta">
+        View Work
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="assets/img-000.png" alt="Daniel Velandia" />
+    </div>
+  </section>
+
+  <!-- ─── About ─────────────────────────────────────────────── -->
+  <section id="about">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Designer. Strategist.<br>Craftsperson.</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>
+          With <strong>5+ years of freelance and in-agency experience</strong>, I conceptualize,
+          create, and manage digital assets for web and digital marketing channels. My work
+          spans brand strategy, visual identity systems, UX/UI, web design, and content production —
+          always goal-oriented and grounded in analytical thinking.
+        </p>
+        <br>
+        <p>
+          More than a team member: I am a <strong>proactive communicator</strong> and a
+          mediator of stakeholders' competing priorities, bridging the gap between creative
+          vision and business objectives.
+        </p>
+      </div>
+      <div>
+        <div class="skills-grid">
+          <div class="skill-item">Brand Design &amp; Strategy</div>
+		  <div class="skill-item">UX / UI Design</div>
+          <div class="skill-item">Layout &amp; Typography</div>		  
+          <div class="skill-item">Co-Design Methodologies</div>
+          <div class="skill-item">Design Conceptualisation</div>		  
+          <div class="skill-item">Desktop Publishing</div>
+          <div class="skill-item">Strategic Planning</div>
+          <div class="skill-item">Web Design &amp; CMS</div>
+          <div class="skill-item">SEO &amp; Digital Marketing</div>
+		  <div class="skill-item">Project Management</div>
+          <div class="skill-item">Service Design</div>
+          <div class="skill-item">Photo &amp; Video Editing</div>
+          <div class="skill-item">Data Analysis &amp; Viz</div>
+          <div class="skill-item">Copywriting</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Work ──────────────────────────────────────────────── -->
+  <section id="work">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-divider"></div>
+
+    <div class="projects-list">
+
+      <!-- Project 1: Quick Language -->
+      <article class="project">
+        <div class="project-top">
+          <div class="project-info">
+            <p class="project-number">01</p>
+            <div class="project-meta">
+              <span class="project-tag">Freelance</span>
+              <span class="project-type">Visual Identity &amp; Web Design</span>
+            </div>
+            <h3 class="project-title">Quick Language</h3>
+            <p class="project-subtitle">
+              Visual identity design for a digital-first language school — from logo and
+              brand strategy through to social media graphics, key visuals, and branded
+              merchandise.
+            </p>
+            <div class="project-services">
+              <span class="service-pill">Brand Design &amp; Strategy</span>
+              <span class="service-pill">Logo Design</span>
+              <span class="service-pill">Web Design</span>			  
+              <span class="service-pill">Digital Assets</span>
+              <span class="service-pill">Social Media Graphics</span>
+              <span class="service-pill">Video Editing</span>
+              <span class="service-pill">Copywriting</span>
+            </div>
+          </div>
+          <div class="img-main">
+            <img src="assets/img-001.jpg" alt="Quick Language – Level Up! hero banner" loading="lazy" />
+          </div>
+        </div>
+        <div class="project-bottom">
+          <div class="img-thumb">
+            <img src="assets/img-004.jpg" alt="Quick Language logo" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-003.jpg" alt="Quick Language phone case mockup" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-002.jpg" alt="Quick Language social media mockup" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-005.jpg" alt="Quick Language – Live Laugh Learn Repeat key visual" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: The Wakeman Agency -->
+      <article class="project reverse">
+        <div class="project-top">
+          <div class="project-info">
+            <p class="project-number">02</p>
+            <div class="project-meta">
+              <span class="project-tag">In-House</span>
+              <span class="project-type">Brand Refresh &amp; Web Design</span>
+            </div>
+            <h3 class="project-title">The Wakeman Agency</h3>
+            <p class="project-subtitle">
+              Brand refresh for a mission-driven PR agency specialised in strategic
+              communications for social change — including web design, podcast branding,
+              and social media content.
+            </p>
+            <div class="project-services">
+              <span class="service-pill">Brand Design &amp; Strategy</span>
+              <span class="service-pill">Web Design</span>
+              <span class="service-pill">Digital Assets &amp; Key Visuals</span>
+            </div>
+          </div>
+          <div class="img-main">
+            <img src="assets/img-007.gif" alt="The Wakeman Agency website on laptop" loading="lazy" />
+          </div>
+        </div>
+        <div class="project-bottom">
+          <div class="img-thumb">
+            <img src="assets/img-009.jpg" alt="The Social Change Diaries podcast cover" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-008.jpg" alt="The Social Change Diaries reels cover" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-010.jpg" alt="Narrative Justice social post" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-011.jpg" alt="Reject fear. Reject division. Reject silence. social post" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: EEAP Coalition -->
+      <article class="project">
+        <div class="project-top">
+          <div class="project-info">
+            <p class="project-number">03</p>
+            <div class="project-meta">
+              <span class="project-tag">Agency</span>
+              <span class="project-type">Content Creation &amp; Illustration</span>
+            </div>
+            <h3 class="project-title">EEAP Coalition</h3>
+            <p class="project-subtitle">
+              Content creation for the Education Equity Action Plan Coalition — an education
+              nonprofit. Work included social media templates, event flyers, key visuals,
+              and custom illustrations for various campaigns and events.
+            </p>
+            <div class="project-services">
+              <span class="service-pill">Social Media Templates</span>
+              <span class="service-pill">Digital Assets &amp; Key Visuals</span>
+              <span class="service-pill">Custom Illustrations</span>
+            </div>
+          </div>
+          <div class="img-main">
+            <img src="assets/img-012.jpg" alt="EEAPC – Bookmobile Illustrated map graphic" loading="lazy" />
+          </div>
+        </div>
+        <div class="project-bottom">
+          <div class="img-thumb">
+            <img src="assets/img-016.jpg" alt="EEAPC – Black Studies Trivia Night event flyer" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-017.jpg" alt="EEAPC – Frances E.W. Harper Black Women's History post" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-015.jpg" alt="EEAPC – Attaining a Seat at the Table event poster" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: República Brandera -->
+      <article class="project reverse">
+        <div class="project-top">
+          <div class="project-info">
+            <p class="project-number">04</p>
+            <div class="project-meta">
+              <span class="project-tag">Freelance</span>
+              <span class="project-type">Visual Identity &amp; Web Design</span>
+            </div>
+            <h3 class="project-title">República Brandera</h3>
+            <p class="project-subtitle">
+              Full identity design for an independent Spanish-language podcast about branding
+              and marketing culture — from logo and brand strategy through to web design, social media
+              graphics, video editing, and episode thumbnails.
+            </p>
+            <div class="project-services">
+              <span class="service-pill">Brand Design &amp; Strategy</span>
+              <span class="service-pill">Web Design</span>			  
+              <span class="service-pill">Logo Design</span>
+              <span class="service-pill">Digital Assets</span>
+              <span class="service-pill">Social Media Graphics</span>
+              <span class="service-pill">Video &amp; Audio Editing</span>
+              <span class="service-pill">Copywriting</span>
+            </div>
+          </div>
+          <div class="img-main">
+            <img src="assets/img-018.jpg" alt="República Brandera flag mockup" loading="lazy" />
+          </div>
+        </div>
+        <div class="project-bottom">
+          <div class="img-thumb">
+            <img src="assets/img-019.jpg" alt="República Brandera logo on yellow background" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-020.jpg" alt="República Brandera – Episode 2 reel cover" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-022.jpg" alt="República Brandera logo on purple background" loading="lazy" />
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ─── Contact ───────────────────────────────────────────── -->
+  <section id="contact">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="contact-headline">
+      I look forward<br>
+      <mark>to working together!</mark>
+    </h2>
+    <p class="contact-sub">Open to new projects, collaborations, and full-time opportunities.</p>
+    <div class="contact-links">
+      <a href="mailto:umediodaniel@gmail.com" class="contact-link primary">
+        Send an Email
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <span class="label">Email</span>
+        <span class="value">umediodaniel@gmail.com</span>
+      </div>
+      <div class="contact-detail">
+        <span class="label">Location</span>
+        <span class="value">Burnaby, BC, Canada</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ────────────────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2026 Daniel Velandia &mdash; All rights reserved</p>
+  </footer>
+
+  <!-- ─── Lightbox ──────────────────────────────────────────── -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lb-close" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 3l14 14M17 3L3 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button id="lb-prev" aria-label="Previous image">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 3L6 10l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button id="lb-next" aria-label="Next image">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 3l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div id="lb-backdrop"></div>
+    <div id="lb-frame">
+      <img id="lb-img" src="" alt="" />
+      <p id="lb-caption"></p>
+      <p id="lb-counter"></p>
+    </div>
+  </div>
+
+  <style>
+    /* ─── Lightbox ──────────────────────────────────────────────── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+
+    #lb-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      cursor: zoom-out;
+    }
+
+    #lb-frame {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 90vw;
+      max-height: 90vh;
+      gap: 0.75rem;
+    }
+
+    #lb-img {
+      max-width: 90vw;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+      transition: opacity 0.2s ease;
+    }
+    #lb-img.fading { opacity: 0; }
+
+    #lb-caption {
+      color: rgba(255,255,255,0.75);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      text-align: center;
+      margin: 0;
+    }
+
+    #lb-counter {
+      color: rgba(255,255,255,0.35);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin: 0;
+    }
+
+    #lb-close, #lb-prev, #lb-next {
+      position: fixed;
+      z-index: 2;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 0;
+      transition: background 0.2s;
+    }
+    #lb-close:hover, #lb-prev:hover, #lb-next:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+    #lb-close { top: 1.5rem; right: 1.5rem; }
+    #lb-prev  { top: 50%; left: 1.5rem;  transform: translateY(-50%); }
+    #lb-next  { top: 50%; right: 1.5rem; transform: translateY(-50%); }
+
+    /* Make all project images show a pointer cursor */
+    .img-main img, .img-thumb img { cursor: zoom-in; }
+  </style>
+
+  <script>
+    (function () {
+      // Collect all project images in DOM order (img-main first, then img-thumbs per project)
+      const gallery = [];
+      document.querySelectorAll('.project').forEach(function (proj) {
+        const mainImg = proj.querySelector('.img-main img');
+        if (mainImg) gallery.push(mainImg);
+        proj.querySelectorAll('.img-thumb img').forEach(function (img) {
+          gallery.push(img);
+        });
+      });
+
+      let current = 0;
+      const lb       = document.getElementById('lightbox');
+      const lbImg    = document.getElementById('lb-img');
+      const lbCap    = document.getElementById('lb-caption');
+      const lbCount  = document.getElementById('lb-counter');
+      const lbClose  = document.getElementById('lb-close');
+      const lbPrev   = document.getElementById('lb-prev');
+      const lbNext   = document.getElementById('lb-next');
+      const lbBack   = document.getElementById('lb-backdrop');
+
+      function open(index) {
+        current = (index + gallery.length) % gallery.length;
+        const img = gallery[current];
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = img.alt || '';
+        lbCount.textContent = (current + 1) + ' / ' + gallery.length;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      function navigate(dir) {
+        lbImg.classList.add('fading');
+        setTimeout(function () {
+          open(current + dir);
+          lbImg.classList.remove('fading');
+        }, 150);
+      }
+
+      // Attach click listeners to all gallery images
+      gallery.forEach(function (img, i) {
+        img.addEventListener('click', function () { open(i); });
+      });
+
+      lbClose.addEventListener('click', close);
+      lbBack.addEventListener('click', close);
+      lbPrev.addEventListener('click', function () { navigate(-1); });
+      lbNext.addEventListener('click', function () { navigate(1); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape')      close();
+        if (e.key === 'ArrowLeft')   navigate(-1);
+        if (e.key === 'ArrowRight')  navigate(1);
+      });
+    })();
+  </script>
+
+</body>
+</html>
