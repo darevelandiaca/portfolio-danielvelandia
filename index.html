@@ -20,7 +20,11 @@
       --radius:  2px;
       --gap:     2rem;
     }
-
+	.mark {
+		background: transparent;
+		padding:0 0.32em;
+	  
+	}
     html { scroll-behavior: smooth; }
 
     body {
@@ -105,13 +109,6 @@
     .hero-name span {
       display: block;
       color: var(--black);
-    }
-
-    .hero-name mark {
-      background: var(--accent);
-      color: var(--black);
-      padding: 0 0.12em;
-      border-radius: 2px;
     }
 
     .hero-desc {
@@ -432,7 +429,7 @@
       font-weight: 300;
       color: #888;
     }
-
+    
     .contact-sub {
       font-size: 1rem;
       font-weight: 300;
@@ -575,7 +572,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
-      <li><mark><a href="#contact">Contact</a></mark></li>
+      <li class="highlight"><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -585,7 +582,7 @@
       <p class="hero-eyebrow">Design Portfolio</p>
       <h1 class="hero-name">
         <mark>Daniel</mark><br>
-        <span>Velandia</span>
+        Velandia
       </h1>
       <p class="hero-desc">
         A Bogotá-raised, Metro Vancouver-based designer specialized in all things Branding:
@@ -659,7 +656,7 @@
             <p class="project-number">01</p>
             <div class="project-meta">
               <span class="project-tag">Freelance</span>
-              <span class="project-type">Visual Identity &amp; Web Design</span>
+              <span class="project-type">Visual Identity &amp; Web Design | Bogotá, COL</span>
             </div>
             <h3 class="project-title">Quick Language</h3>
             <p class="project-subtitle">
@@ -704,7 +701,7 @@
             <p class="project-number">02</p>
             <div class="project-meta">
               <span class="project-tag">In-House</span>
-              <span class="project-type">Brand Refresh &amp; Web Design</span>
+              <span class="project-type">Brand Refresh &amp; Web Design | New York, USA</span>
             </div>
             <h3 class="project-title">The Wakeman Agency</h3>
             <p class="project-subtitle">
@@ -745,7 +742,7 @@
             <p class="project-number">03</p>
             <div class="project-meta">
               <span class="project-tag">Agency</span>
-              <span class="project-type">Content Creation &amp; Illustration</span>
+              <span class="project-type">Content Creation &amp; Illustration | New York, USA</span>
             </div>
             <h3 class="project-title">EEAP Coalition</h3>
             <p class="project-subtitle">
@@ -783,14 +780,14 @@
             <p class="project-number">04</p>
             <div class="project-meta">
               <span class="project-tag">Freelance</span>
-              <span class="project-type">Visual Identity &amp; Web Design</span>
+              <span class="project-type">Visual Identity &amp; Web Design  | Vancouver, CAN &amp; Bogotá, COL </span>
             </div>
             <h3 class="project-title">República Brandera</h3>
             <p class="project-subtitle">
               Full identity design for an independent Spanish-language podcast about branding
               and marketing culture — from logo and brand strategy through to web design, social media
               graphics, video editing, and episode thumbnails.
-            </p>
+			            </p>
             <div class="project-services">
               <span class="service-pill">Brand Design &amp; Strategy</span>
               <span class="service-pill">Web Design</span>			  
@@ -818,6 +815,49 @@
         </div>
       </article>
 
+      <!-- Project 5: MAF Artist Catalogue -->
+      <article class="project">
+        <div class="project-top">
+          <div class="project-info">
+            <p class="project-number">05</p>
+            <div class="project-meta">
+              <span class="project-tag">Freelance</span>
+              <span class="project-type">Book Design, Layout and Typography | Bogotá, COL &amp; Paris, FRA</span>
+            </div>
+            <h3 class="project-title">Artist Catalogue - Marcos &Aacute;vila Forero</h3>
+            <p class="project-subtitle">
+              <em>Desde las montañas</em> (From the Mountains) and <em>Contra la Corriente</em> (Against the Currents) are 
+			  two complementary Artist books that compile the prolific works of Marcos &Aacute;vila Forero —a Franco-Colombian visual,
+			  performance and conceptual artist based in Paris, France— that came together as a companion piece to his show on the Pori Art Museum in Finland.</p>
+            <p class="project-subtitle">The book was designed to be read from end to mid-point and then flipped over, to give both sections the same importance and to defy the notions of conventinal reading order.
+			</p>
+            <div class="project-services">
+              <span class="service-pill">Layout &amp; Typography</span>
+              <span class="service-pill">Editorial Design</span>			  
+              <span class="service-pill">Print Design</span>
+              <span class="service-pill">Photo Editing</span>
+              <span class="service-pill">Translation</span>
+            </div>
+          </div>
+          <div class="img-main">
+            <img src="assets/img-023.jpg" alt="Marcos Ávila Forero Artist Catalogue display" loading="lazy" />
+          </div>
+        </div>
+        <div class="project-bottom">
+          <div class="img-thumb">
+            <img src="assets/img-024.jpg" alt="Marcos Ávila Forero Artist Catalogue covers" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-025.jpg" alt="Marcos Ávila Forero Artist Catalogue 'Desde las montañas' cover" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-026.jpg" alt="Marcos Ávila Forero Artist Catalogue internal pages" loading="lazy" />
+          </div>
+          <div class="img-thumb">
+            <img src="assets/img-027.jpg" alt="Marcos Ávila Forero Artist Catalogue internal pages" loading="lazy" />
+          </div>		  
+        </div>
+      </article>
     </div>
   </section>
 
@@ -826,7 +866,7 @@
     <p class="section-label">Get in Touch</p>
     <h2 class="contact-headline">
       I look forward<br>
-      <mark>to working together!</mark>
+      <mark class="highlight">to working together!</mark>
     </h2>
     <p class="contact-sub">Open to new projects, collaborations, and full-time opportunities.</p>
     <div class="contact-links">
