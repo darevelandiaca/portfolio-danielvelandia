@@ -217,31 +217,114 @@
 
     .about-bio strong { color: var(--white); font-weight: 600; }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem 2rem;
+   /* ─── Skills Accordion ─────────────────────────────────────── */
+    .skills-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    .skill-item {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: #aaa;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .acc-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .acc-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 1.25rem 0;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 1rem;
+      transition: color 0.2s;
     }
 
-    .skill-item::before {
+    .acc-trigger:hover { color: var(--accent); }
+
+    .acc-trigger.open { color: var(--accent); }
+
+    .acc-icon {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .acc-icon::before,
+    .acc-icon::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* horizontal bar */
+    .acc-icon::before {
+      width: 14px; height: 2px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* vertical bar */
+    .acc-icon::after {
+      width: 2px; height: 14px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .acc-trigger.open .acc-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+      opacity: 0;
+    }
+
+    .acc-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+
+    .acc-panel.open {
+      max-height: 400px;
+    }
+
+    .acc-list {
+      list-style: none;
+      padding: 0 0 1.25rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .acc-list li {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: #aaa;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .acc-list li::before {
       content: '';
       display: inline-block;
-      width: 6px; height: 6px;
+      width: 5px; height: 5px;
       background: var(--accent);
       border-radius: 50%;
       flex-shrink: 0;
     }
+
+    .acc-list li:last-child { border-bottom: none; }
 
     /* ─── Work ──────────────────────────────────────────────────── */
     #work { background: var(--white); }
@@ -704,7 +787,6 @@
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .hero-name { font-size: 2.8rem; }
-      .skills-grid { grid-template-columns: 1fr; }
       .contact-headline { font-size: 2.2rem; }
 	  .form-row { grid-template-columns: 1fr; }
     }
@@ -756,35 +838,74 @@
         <p>
           With <strong>5+ years of freelance and in-agency experience</strong>, I conceptualize,
           create, and manage digital assets for web and digital marketing channels. My work
-          spans brand strategy, visual identity systems, UX/UI, web design, and content production —
-          always goal-oriented and grounded in analytical thinking.
+          spans brand strategy, visual identity systems, UI/UX, web design, and content production —
+          always goal-oriented, and grounded in analytical thinking.
         </p>
         <br>
         <p>
-          More than a team member: I am a <strong>proactive communicator</strong> and a
+          More than a team member or contractor: I am a <strong>true creative partner</strong> and a
           mediator of stakeholders' competing priorities, bridging the gap between creative
           vision and business objectives.
         </p>
       </div>
-      <div>
-        <div class="skills-grid">
-          <div class="skill-item">Brand Design &amp; Strategy</div>
-		  <div class="skill-item">UX / UI Design</div>
-          <div class="skill-item">Layout &amp; Typography</div>		  
-          <div class="skill-item">Co-Design Methodologies</div>
-          <div class="skill-item">Design Conceptualisation</div>		  
-          <div class="skill-item">Desktop Publishing</div>
-          <div class="skill-item">Strategic Planning</div>
-          <div class="skill-item">Web Design &amp; CMS</div>
-          <div class="skill-item">SEO &amp; Digital Marketing</div>
-		  <div class="skill-item">Project Management</div>
-          <div class="skill-item">Service Design</div>
-          <div class="skill-item">Photo &amp; Video Editing</div>
-          <div class="skill-item">Data Analysis &amp; Viz</div>
-          <div class="skill-item">Copywriting</div>
+       <div class="skills-accordion">
+
+          <!-- Design -->
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false" data-acc>
+              Design
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" role="region">
+              <ul class="acc-list">
+                <li>Branding and Visual Identity</li>
+                <li>UI/UX Design</li>
+                <li>Web Design &amp; CMS</li>
+                <li>Co-Design Methodologies</li>
+                <li>Design Conceptualization</li>
+                <li>Service Design</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Strategy -->
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false" data-acc>
+              Strategy
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" role="region">
+              <ul class="acc-list">
+                <li>Brand Strategy</li>
+				<li>Content Strategy</li>
+                <li>Strategic Planning</li>
+                <li>SEO &amp; Digital Marketing</li>
+                <li>Project Management</li>
+                <li>Data Visualization &amp; Analysis</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Craft -->
+          <div class="acc-item">
+            <button class="acc-trigger" aria-expanded="false" data-acc>
+              Craft
+              <span class="acc-icon" aria-hidden="true"></span>
+            </button>
+            <div class="acc-panel" role="region">
+              <ul class="acc-list">
+                <li>Layout &amp; Typography</li>
+                <li>Desktop Publishing</li>
+                <li>Photo &amp; Video Editing</li>
+                <li>Copywriting</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+
   </section>
 
   <!-- ─── Work ──────────────────────────────────────────────── -->
@@ -1320,6 +1441,30 @@
         .finally(function () {
           btn.disabled = false;
           btn.innerHTML = 'Send Message <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        });
+      });
+    })();
+  </script>
+
+<!-- ─── Accordion JS ───────────────────────────────────── -->
+  <script>
+    (function () {
+      document.querySelectorAll('[data-acc]').forEach(function (btn) {
+        var panel = btn.nextElementSibling;
+        btn.addEventListener('click', function () {
+          var isOpen = btn.classList.contains('open');
+          // Close all
+          document.querySelectorAll('[data-acc]').forEach(function (b) {
+            b.classList.remove('open');
+            b.setAttribute('aria-expanded', 'false');
+            b.nextElementSibling.classList.remove('open');
+          });
+          // Open clicked if it was closed
+          if (!isOpen) {
+            btn.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+            panel.classList.add('open');
+          }
         });
       });
     })();
