@@ -21,11 +21,12 @@
       --gap:     2rem;
     }
 	.mark {
-		background: transparent;
-		padding:0 0.32em;
-	  
+	  background: transparent;
+  	padding: 0 0.32em;
+  	color: var(--accent);
 	}
-    html { scroll-behavior: smooth; }
+	
+	html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -785,10 +786,12 @@
     }
 
     @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero-name { font-size: 2.8rem; }
-      .contact-headline { font-size: 2.2rem; }
-	  .form-row { grid-template-columns: 1fr; }
+		.nav-links { gap: 0; }
+		.nav-links li { display: none; }
+		.nav-links li.mark { display: flex; }
+		.hero-name { font-size: 2.8rem; }
+		.contact-headline { font-size: 2.2rem; }
+		.form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -800,7 +803,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
-      <li class="highlight"><a href="#contact">Contact</a></li>
+      <li.mark><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -897,7 +900,9 @@
                 <li>Layout &amp; Typography</li>
                 <li>Desktop Publishing</li>
                 <li>Photo &amp; Video Editing</li>
-                <li>Copywriting</li>
+                <li>Illustration</li>
+				<li>Copywriting</li>
+				<li>AI-Enhanced Workflows</li>  
               </ul>
             </div>
           </div>
@@ -1133,35 +1138,7 @@
     <p class="section-label">Contact</p>
     <div class="contact-inner">
 
-      <!-- Left: info -->
-      <div class="contact-left">
-        <h2 class="contact-headline">
-          I look forward<br>
-          <mark>to working together!</mark>
-        </h2>
-        <p class="contact-sub">Open to new projects, collaborations, and full-time opportunities. Fill out the form or reach out directly.</p>
-        <div class="contact-links">
-          <a href="mailto:hello@unmediodaniel.com" class="contact-link primary">
-            Get in Touch
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-
-        </div>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <span class="label">Email</span>
-            <span class="value">hello@unmediodaniel.com</span>
-          </div>
-          <div class="contact-detail">
-            <span class="label">Location</span>
-            <span class="value">Burnaby, BC, Canada</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: form -->
+      <!-- Left: form -->
       <div class="contact-form-wrap">
         <h3>Let's chat about your next project:</h3>
         <p class="form-sub">I’ll get back to you within 1–2 business days.</p>
@@ -1202,6 +1179,34 @@
         </form>
         <div class="form-status" id="form-status"></div>
       </div>
+
+		<!-- Right: info -->
+      <div class="contact-left">
+        <h2 class="contact-headline">
+          I look forward<br>
+          <mark>to working together!</mark>
+        </h2>
+        <p class="contact-sub">Open to new projects, collaborations, and full-time opportunities. Fill out the form or reach out directly.</p>
+        <div class="contact-links">
+          <a href="mailto:hello@unmediodaniel.com" class="contact-link primary">
+            Get in Touch
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+        </div>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span class="label">Email</span>
+            <span class="value">hello@unmediodaniel.com</span>
+          </div>
+          <div class="contact-detail">
+            <span class="label">Location</span>
+            <span class="value">Burnaby, BC, Canada</span>
+          </div>
+        </div>
+      </div>		
 
     </div>
   </section>
